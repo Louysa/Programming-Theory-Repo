@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class UpgradedFood : Food
 {
+    
     public override void checkIfActive()
     {
-        if (gameObject.transform.position.z > 20)
+        Food food = new Food();
+        food.ZBound = 20f;
+        if (gameObject.transform.position.z > food.ZBound)
         {
             gameObject.SetActive(false);
         }
