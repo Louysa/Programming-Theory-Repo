@@ -13,12 +13,17 @@ public class AnimalHunger : MonoBehaviour
 
     void Start()
     {
-        hungerSlider.maxValue = amountToBeFed;
-        hungerSlider.value = 0;
-        hungerSlider.fillRect.gameObject.SetActive(false);
+        SetSlider();
+        
         _GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
+    private void SetSlider()
+    {
+        hungerSlider.maxValue = amountToBeFed;
+        hungerSlider.value = 0;
+        hungerSlider.fillRect.gameObject.SetActive(false);
+    }
     public void FeedAnimal(int amount)
     {
         currentFedAmount += amount;

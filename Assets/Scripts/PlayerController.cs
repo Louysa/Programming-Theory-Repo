@@ -7,11 +7,41 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float speed = 20.0f;
     private float xRange = 20;
-    public GameObject projectilePrefab;
+    public GameObject[] projectilePrefab;
 
 
     // Update is called once per frame
     void Update()
+    {
+        CheckBounds();
+        
+        PlayerMovement();
+        
+        CreateProjectile();
+    }
+    
+    private void PlayerMovement()
+    {
+        // Player movement left to right
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+    }
+    
+    private void CreateProjectile()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject pooledProjectile = ObjectPooler.SharedInstance.pooledObjects[1];
+            if (pooledProjectile != null)
+            {
+                pooledProjectile.transform.position = transform.position;
+                pooledProjectile.transform.rotation = transform.rotation;
+                pooledProjectile.SetActive(true);
+            }
+        }
+    }
+    
+    private void CheckBounds()
     {
         // Check for left and right bounds
         if (transform.position.x < -xRange)
@@ -23,27 +53,5 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-
-        // Player movement left to right
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // No longer necessary to Instantiate prefabs
-            // Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-
-            // Get an object object from the pool
-            GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
-            if (pooledProjectile != null)
-            {
-                pooledProjectile.SetActive(true); // activate it
-                pooledProjectile.transform.position = transform.position; // position it at player
-            }
-        }
-
-
-
     }
 }

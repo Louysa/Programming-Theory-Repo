@@ -21,11 +21,7 @@ public class SpawnManager : MonoBehaviour
     {
         InvokeRepeating("SpawnRandomAnimal",startDelay,spawnInterval);
     }
-
-    void Update()
-    {
-        
-    }
+    
 
     void SpawnRandomAnimal()
     {

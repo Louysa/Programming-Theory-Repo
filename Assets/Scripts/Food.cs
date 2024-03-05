@@ -22,7 +22,7 @@ public class Food : MonoBehaviour
         }
     }
     
-    private void checkIfActive()
+    public virtual void checkIfActive()
     {
         if (gameObject.transform.position.z > 30)
         {
