@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//INHERITANCE
 public class UpgradedFood : Food
 {
-    
+    // POLYMORPHISM
     public override void checkIfActive()
     {
+        // ENCAPSULATION
         Food food = new Food();
         food.ZBound = 20f;
         if (gameObject.transform.position.z > food.ZBound)

@@ -38,7 +38,7 @@ public class Food : MonoBehaviour
             
         }
     }
-    
+    // ABSTRACTION
     public virtual void checkIfActive()
     {
         if (gameObject.transform.position.z > zBound)

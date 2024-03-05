@@ -19,14 +19,14 @@ public class PlayerController : MonoBehaviour
         
         CreateProjectile();
     }
-    
+    // ABSTRACTION
     private void PlayerMovement()
     {
         // Player movement left to right
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
     }
-    
+    // ABSTRACTION
     private void CreateProjectile()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
+    // ABSTRACTION
     private void CheckBounds()
     {
         // Check for left and right bounds
