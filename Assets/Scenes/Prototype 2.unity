@@ -684,8 +684,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c0e1f24e2ce4a5b9bf1f3a7499cd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool: {fileID: 7147087230332373387, guid: 9f0e6e6b7e993cf44b0e210831bf287a, type: 3}
+  pooledObjects:
+  - {fileID: 3320934734819777116, guid: 72b756ebd23696f47bb78cb376b32383, type: 3}
+  - {fileID: 7147087230332373387, guid: 9f0e6e6b7e993cf44b0e210831bf287a, type: 3}
+  objectToPool: {fileID: 3320934734819777116, guid: 72b756ebd23696f47bb78cb376b32383, type: 3}
   amountToPool: 20
 --- !u!1 &1590138454
 GameObject:
@@ -906,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e917c52987daa41af6a0305d9813c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7147087230332373387, guid: 9f0e6e6b7e993cf44b0e210831bf287a, type: 3}
+  projectilePrefab: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
